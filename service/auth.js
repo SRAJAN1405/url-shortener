@@ -15,7 +15,7 @@ function getUser(token)
 {
     if(!token) return null;
     try{
-        console.log(jwt.verify(token,secretKey));
+        // console.log(jwt.verify(token,secretKey));
     return jwt.verify(token,secretKey);
    }
    catch(error){
