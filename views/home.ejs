@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      margin: 2rem; /* Add some margin for better spacing */
+    }
+
+    h1 {
+      text-align: center; /* Center align the heading */
+    }
+
+    label {
+      display: block; /* Make label appear on a new line */
+      margin-bottom: 0.5rem; /* Add some space below the label */
+    }
+    .container
+    {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    input[type="text"] {
+      width: 80%; /* Make the input field fill the available space */
+      padding: 0.5rem; /* Add some padding for better user experience */
+      border: 1px solid #ccc; /* Add a thin border */
+      margin-bottom: 1rem;
+      border-radius: 7px;
+    }
+
+    button {
+        margin-left: 5px;
+        margin-bottom: 16px;
+      background-color: #4CAF50; /* Green button color */
+      color: white; /* White text color */
+      padding: 0.75rem 1rem; /* Adjust padding for the button */
+      border: none; /* Remove default border */
+      border-radius: 7px; /* Add rounded corners */
+      cursor: pointer; /* Indicate clickable action */
+    }
+
+    table {
+      width: 100%; /* Make the table fill the available space */
+      border-collapse: collapse; /* Ensure table cells don't have gaps */
+    }
+
+    th, td {
+      padding: 0.75rem; /* Add padding for better readability */
+      text-align: left; /* Left-align content in table cells */
+      border: 1px solid #ddd; /* Add thin table borders */
+    }
+
+    th {
+      background-color: #f2f2f2; /* Light gray background for table headers */
+    }
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+</head>
+<body>
+  <h1>URL Shortener</h1>
+  <% if (locals.id) { %>
+    <p>URL Generated:http://localhost:8001/url/<%= locals.id %></p>
+  <% } %>
+  
+  <div>
+    <form method="post" action="/url">
+      <label>
+        Enter Your Original URL
+        <br>
+      </label>
+      <div class="container">
+      <input type="text" name="url" placeholder="https://example.com"/>
+      <button type="submit">Generate</button>
+    </div>
+    </form>
+  </div>
+  
+  <% if (locals.urls) { %>
+    <div>
+      <table>
+        <thead>
+          <th>S. No</th>
+          <th>ShortID</th>
+          <th>Redirect</th>
+          <th>Clicks</th>
+        </thead>
+        <tbody>
+          <% urls.forEach((url,index) => { %>
+            <tr>
+              <td><%=index+1%></td>
+              <td><%= url.shortId %></td>
+              <td><%= url.redirectURL %></td>
+              <td><%= url.visitHistory.length %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  <% } %>
+</body>
+</html>

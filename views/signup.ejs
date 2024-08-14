@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width:30%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            width:80%;
+            display: flex;
+            flex-direction: column;
+            gap:1rem;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        input[type="text"] {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            display:flex;
+            justify-content: center;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width:30%;
+        }
+        .submit-container{
+            display:flex;
+            justify-content: center;
+       }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp Page</title>
+</head>
+<body>
+    <div class="container">
+    <h1>Sign Up</h1>
+    <form action="/user" method="post">
+        <div class="name">
+        <label>Full Name</label>
+        <input type="text" required name="name"/>
+         </div>
+         <div class="email">
+        <label>Email Id</label>
+        <input type="text" required name="email"/>
+        </div>
+        <div class="password">
+        <label>Password</label>
+        <input type="text" required name="password"/>
+        </div>
+        <div class="submit-container">
+        <button type="submit"><span>Submit</span></button>
+    </div>
+    </form>
+    </div>
+</body>
+</html>
